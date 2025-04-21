@@ -1,0 +1,14 @@
+name: Check URL every 5 minutes
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+
+jobs:
+  check_url:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: L
+        run: |
+          curl -s -o /dev/null -w "%{http_code}" $(echo "aHR0cHM6Ly9uZWtvY3VyaXQuYXNpYQ==" | base64 --decode)
